@@ -38,7 +38,6 @@ def main():
     v0, kappa, theta, sigma, rho, lambd = [param for param in result.x]
     heston_prices = heston_price_rec(S0, K, v0, kappa, theta, sigma, rho, lambd, tau, r)
     df['heston_price'] = heston_prices
-    print(df[["price", "heston_price","rate","strike","ttm"]].head(50))
     
     # Step 4: Generate Heston prices and compare
     v0, kappa, theta, sigma, rho, lambd = result.x
@@ -47,8 +46,6 @@ def main():
         for K_i, tau_i, r_i in zip(K, tau, r)
     ])
     df['heston_price'] = heston_prices
-    print(df[["price", "heston_price", "rate", "strike", "ttm"]].head(50))
-
 
 
 if __name__ == "__main__":
